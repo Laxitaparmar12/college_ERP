@@ -1,0 +1,6 @@
+admin_id,name,email,role
+ADM001,Rajesh Sharma,rajesh.sharma@college.edu,Super Admin
+ADM002,Priya Patel,priya.patel@college.edu,Academic Registrar
+ADM003,Amit Verma,amit.verma@college.edu,Exam Controller
+ADM004,Sneha Joshi,sneha.joshi@college.edu,HR Manager
+ADM005,Vikram Singh,vikram.singh@college.edu,Finance Head

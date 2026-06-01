@@ -1,0 +1,28 @@
+enrollment_no,event_id,registration_status,attendance_status,position,points
+ENR20260001,EVT_TECH_01,Registered,Present,Participant,10
+ENR20260001,EVT_CULT_03,Registered,Present,Winner,50
+ENR20260002,EVT_SPRT_02,Registered,Present,Runner Up,30
+ENR20260002,EVT_TECH_01,Cancelled,Absent,None,0
+ENR20260003,EVT_LIT_01,Registered,Present,Top 10,20
+ENR20260004,EVT_SPRT_02,Registered,Present,Participant,10
+ENR20260004,EVT_CULT_03,Registered,Absent,None,0
+ENR20260005,EVT_TECH_01,Registered,Present,Top 10,20
+ENR20260006,EVT_LIT_01,Registered,Present,Participant,10
+ENR20260007,EVT_SPRT_02,Registered,Present,Winner,50
+ENR20260007,EVT_TECH_01,Registered,Present,Runner Up,30
+ENR20260008,EVT_CULT_03,Registered,Present,Participant,10
+ENR20260009,EVT_TECH_01,Cancelled,Absent,None,0
+ENR20260009,EVT_LIT_01,Registered,Present,Top 10,20
+ENR20260010,EVT_SPRT_02,Registered,Present,Participant,10
+ENR20260011,EVT_CULT_03,Registered,Present,Runner Up,30
+ENR20260012,EVT_TECH_01,Registered,Present,Winner,50
+ENR20260013,EVT_LIT_01,Registered,Present,Participant,10
+ENR20260014,EVT_SPRT_02,Registered,Present,Top 10,20
+ENR20260015,EVT_CULT_03,Registered,Present,Participant,10
+ENR20260015,EVT_TECH_01,Registered,Absent,None,0
+ENR20260016,EVT_LIT_01,Registered,Present,Winner,50
+ENR20260017,EVT_SPRT_02,Cancelled,Absent,None,0
+ENR20260018,EVT_CULT_03,Registered,Present,Top 10,20
+ENR20260018,EVT_TECH_01,Registered,Present,Participant,10
+ENR20260019,EVT_LIT_01,Registered,Present,Runner Up,30
+ENR20260020,EVT_SPRT_02,Registered,Present,Participant,10
