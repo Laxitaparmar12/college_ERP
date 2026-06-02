@@ -1,31 +1,31 @@
-faculty_id,faculty_name,email,department,designation,mobile_no
-FAC001,Rajesh Sharma,rajesh.sharma@college.edu,CE,Assistant Professor,9638459419
-FAC002,Suresh Verma,suresh.verma@college.edu,EE,Assistant Professor,8270104616
-FAC003,Amit Patel,amit.patel@college.edu,EC,HOD,9863412702
-FAC004,Nitin Joshi,nitin.joshi@college.edu,Science & Humanity,Associate Professor,8424263628
-FAC005,Rahul Mehta,rahul.mehta@college.edu,Science & Humanity,Professor,9340570889
-FAC006,Anil Shah,anil.shah@college.edu,EE,HOD,7412726581
-FAC007,Sunita Gupta,sunita.gupta@college.edu,ME,Assistant Professor,9231872851
-FAC008,Priya Kumar,priya.kumar@college.edu,EC,Associate Professor,8397394541
-FAC009,Deepak Singh,deepak.singh@college.edu,CE,HOD,9550414923
-FAC010,Sanjay Mishra,sanjay.mishra@college.edu,ME,Associate Professor,8685160350
-FAC011,Manish Trivedi,manish.trivedi@college.edu,CIVIL,HOD,9775086885
-FAC012,Alok Pandya,alok.pandya@college.edu,MBA,Associate Professor,9191062093
-FAC013,Vikram Rana,vikram.rana@college.edu,Science & Humanity,Assistant Professor,7236592265
-FAC014,Arvind Chauhan,arvind.chauhan@college.edu,MCA,Professor,7880590396
-FAC015,Karan Yadav,karan.yadav@college.edu,CE,Assistant Professor,7349970974
-FAC016,Megha Jha,megha.jha@college.edu,EE,HOD,8897587784
-FAC017,Ritu Das,ritu.das@college.edu,EE,Associate Professor,8123286765
-FAC018,Neha Sen,neha.sen@college.edu,MCA,HOD,9567958564
-FAC019,Pankaj Goni,pankaj.goni@college.edu,EC,Associate Professor,7295250428
-FAC020,Vijay Bhatt,vijay.bhatt@college.edu,ME,Professor,8489725832
-FAC021,Ramesh Desai,ramesh.desai@college.edu,CIVIL,Assistant Professor,8272895697
-FAC022,Harish Kulkarni,harish.kulkarni@college.edu,IT,Professor,7883256950
-FAC023,Gaurav Joshi,gaurav.joshi@college.edu,MBA,Assistant Professor,9618195861
-FAC024,Abhishek Rao,abhishek.rao@college.edu,MCA,Assistant Professor,9921703668
-FAC025,Pooja Reddy,pooja.reddy@college.edu,ME,Professor,8289874883
-FAC026,Divya Nair,divya.nair@college.edu,Science & Humanity,HOD,9330364956
-FAC027,Sneha Pillai,sneha.pillai@college.edu,CE,HOD,9577717467
-FAC028,Jyoti Saxena,jyoti.saxena@college.edu,EE,Professor,9683884392
-FAC029,Manoj Agrawal,manoj.agrawal@college.edu,Science & Humanity,HOD,8836544026
-FAC030,Sandip Malhotra,sandip.malhotra@college.edu,CIVIL,Professor,7242131349
+faculty_id,faculty_name,email,department,designation,mobile_no,password
+FAC001,Rajesh Sharma,rajesh.sharma@college.edu,CE,Assistant Professor,9638459419,rajesh234
+FAC002,Suresh Verma,suresh.verma@college.edu,EE,Assistant Professor,8270104616,suresh234
+FAC003,Amit Patel,amit.patel@college.edu,EC,HOD,9863412702,amit234
+FAC004,Nitin Joshi,nitin.joshi@college.edu,Science & Humanity,Associate Professor,8424263628,nitin234
+FAC005,Rahul Mehta,rahul.mehta@college.edu,Science & Humanity,Professor,9340570889,rahul234
+FAC006,Anil Shah,anil.shah@college.edu,EE,HOD,7412726581,anil234
+FAC007,Sunita Gupta,sunita.gupta@college.edu,ME,Assistant Professor,9231872851,sunita234
+FAC008,Priya Kumar,priya.kumar@college.edu,EC,Associate Professor,8397394541,priya234
+FAC009,Deepak Singh,deepak.singh@college.edu,CE,HOD,9550414923,deepak234
+FAC010,Sanjay Mishra,sanjay.mishra@college.edu,ME,Associate Professor,8685160350,sanjay234
+FAC011,Manish Trivedi,manish.trivedi@college.edu,CIVIL,HOD,9775086885,manish234
+FAC012,Alok Pandya,alok.pandya@college.edu,MBA,Associate Professor,9191062093,alok234
+FAC013,Vikram Rana,vikram.rana@college.edu,Science & Humanity,Assistant Professor,7236592265,vikram234
+FAC014,Arvind Chauhan,arvind.chauhan@college.edu,MCA,Professor,7880590396,arvind234
+FAC015,Karan Yadav,karan.yadav@college.edu,CE,Assistant Professor,7349970974,karan234
+FAC016,Megha Jha,megha.jha@college.edu,EE,HOD,8897587784,megha234
+FAC017,Ritu Das,ritu.das@college.edu,EE,Associate Professor,8123286765,ritu234
+FAC018,Neha Sen,neha.sen@college.edu,MCA,HOD,9567958564,neha234
+FAC019,Pankaj Goni,pankaj.goni@college.edu,EC,Associate Professor,7295250428,pankaj234
+FAC020,Vijay Bhatt,vijay.bhatt@college.edu,ME,Professor,8489725832,vijay234
+FAC021,Ramesh Desai,ramesh.desai@college.edu,CIVIL,Assistant Professor,8272895697,ramesh234
+FAC022,Harish Kulkarni,harish.kulkarni@college.edu,IT,Professor,7883256950,harish234
+FAC023,Gaurav Joshi,gaurav.joshi@college.edu,MBA,Assistant Professor,9618195861,gaurav234
+FAC024,Abhishek Rao,abhishek.rao@college.edu,MCA,Assistant Professor,9921703668,abhishek234
+FAC025,Pooja Reddy,pooja.reddy@college.edu,ME,Professor,8289874883,pooja234
+FAC026,Divya Nair,divya.nair@college.edu,Science & Humanity,HOD,9330364956,divya234
+FAC027,Sneha Pillai,sneha.pillai@college.edu,CE,HOD,9577717467,sneha234
+FAC028,Jyoti Saxena,jyoti.saxena@college.edu,EE,Professor,9683884392,jyoti234
+FAC029,Manoj Agrawal,manoj.agrawal@college.edu,Science & Humanity,HOD,8836544026,manoj234
+FAC030,Sandip Malhotra,sandip.malhotra@college.edu,CIVIL,Professor,7242131349,sandip234
