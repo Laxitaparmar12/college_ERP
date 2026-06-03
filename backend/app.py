@@ -1,36 +1,119 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager  # Added for JWT
-
-# 1. Import all route blueprints + the new auth blueprint
-from routes.student import student_bp
-from routes.faculty import faculty_bp
-from routes.attendance import attendance_bp
-from routes.results import results_bp
-from routes.subjects import subjects_bp
-from routes.events import events_bp
-from routes.auth import auth_bp  # New auth route import
+import pandas as pd
 
 app = Flask(__name__)
-CORS(app)
 
-# 2. Configure JWT Settings
-app.config["JWT_SECRET_KEY"] = "college-erp-secure-secret-key"  # Change this to a random string later
-jwt = JWTManager(app)
+# ✅ CORS FIX (IMPORTANT)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
-# 3. Register all blueprints with Flask
-app.register_blueprint(student_bp)
-app.register_blueprint(faculty_bp)
-app.register_blueprint(attendance_bp)
-app.register_blueprint(results_bp)
-app.register_blueprint(subjects_bp)
-app.register_blueprint(events_bp)
-app.register_blueprint(auth_bp)  # Registering the authentication route
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+    return response
 
-# 4. Home route
-@app.route('/')
+# -------------------------------
+# 📁 CSV LOAD
+# -------------------------------
+students = pd.read_csv("dataset/student.csv")
+faculty = pd.read_csv("dataset/faculty.csv")
+admins = pd.read_csv("dataset/admin.csv")
+
+# -------------------------------
+# ✅ HOME
+# -------------------------------
+@app.route("/")
 def home():
-    return "College ERP Backend is Running Successfully!"
+    return "SmartERP Backend Running ✅"
 
-if __name__ == '__main__':
+# -------------------------------
+# ✅ LOGIN API
+# -------------------------------
+@app.route("/api/login", methods=["POST"])
+def login():
+    data = request.json
+    username = str(data.get("email")).strip()
+    password = str(data.get("password")).strip()
+
+    # 🔥 STUDENT LOGIN (ID)
+    student = students[students["id"].astype(str) == username]
+    if not student.empty:
+        return jsonify({
+            "role": "student",
+            "user": student.iloc[0].to_dict()
+        })
+
+    # 🔥 FACULTY LOGIN
+    fac = faculty[faculty["email"] == username]
+    if not fac.empty:
+        return jsonify({
+            "role": "faculty",
+            "user": fac.iloc[0].to_dict()
+        })
+
+    # 🔥 ADMIN LOGIN
+    adm = admins[admins["email"] == username]
+    if not adm.empty:
+        return jsonify({
+            "role": "admin",
+            "user": adm.iloc[0].to_dict()
+        })
+
+    return jsonify({"error": "Invalid credentials"}), 401
+
+# -------------------------------
+# ✅ USER DATA API
+# -------------------------------
+@app.route("/api/user-data", methods=["POST"])
+def user_data():
+    data = request.json
+    role = data.get("role")
+    user_id = str(data.get("id"))
+
+    if role == "student":
+        user = students[students["id"].astype(str) == user_id]
+        if not user.empty:
+            return jsonify(user.iloc[0].to_dict())
+
+    if role == "faculty":
+        user = faculty[faculty["email"] == user_id]
+        if not user.empty:
+            return jsonify(user.iloc[0].to_dict())
+
+    if role == "admin":
+        user = admins[admins["email"] == user_id]
+        if not user.empty:
+            return jsonify(user.iloc[0].to_dict())
+
+    return jsonify({"error": "User not found"}), 404
+
+# -------------------------------
+# ✅ DASHBOARD STATS
+# -------------------------------
+@app.route("/api/dashboard-stats", methods=["GET"])
+def dashboard():
+    return jsonify({
+        "students": len(students),
+        "faculty": len(faculty),
+        "courses": 12
+    })
+
+# -------------------------------
+# ✅ CSV UPLOAD
+# -------------------------------
+@app.route("/upload-csv", methods=["POST"])
+def upload_csv():
+    file = request.files.get("file")
+
+    if not file:
+        return jsonify({"error": "No file uploaded"}), 400
+
+    return jsonify({"message": "File uploaded successfully"})
+
+# -------------------------------
+# 🚀 RUN
+# -------------------------------
+if __name__ == "__main__":
     app.run(debug=True)
