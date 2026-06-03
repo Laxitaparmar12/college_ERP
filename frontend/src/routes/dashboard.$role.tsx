@@ -1,11 +1,11 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
   Brain, LogOut, User, CalendarDays, BookOpen, FileText, Award, Video,
   Wallet, Bell, Sparkles, Camera, Users, ClipboardEdit, GraduationCap,
   BarChart3, Loader2, CheckCircle2, AlertTriangle, ShieldCheck, Settings,
-  PenSquare, Trash2, Plus, Download, Upload, Radio,
+  PenSquare, Trash2, Plus, Download, Upload, Radio, Database,
 } from "lucide-react";
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -30,6 +30,51 @@ export const Route = createFileRoute("/dashboard/$role")({
 });
 
 type TabDef = { id: string; label: string; icon: any };
+type CsvUser = Record<string, string | number | null | undefined>;
+type CsvDataset = {
+  columns: string[];
+  rows: CsvUser[];
+  total: number;
+};
+
+function getInitials(name = "User") {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase() || "U";
+}
+
+function profileFromUser(role: string, user?: CsvUser | null) {
+  if (!user) return { name: "Loading...", sub: "Reading CSV data", initials: "..." };
+
+  if (role === "student") {
+    const name = String(user.name ?? "Student");
+    return {
+      name,
+      sub: `${user.department ?? ""} • Sem ${user.semester ?? ""} • ID: ${user.enrollment_no ?? ""}`,
+      initials: getInitials(name),
+    };
+  }
+
+  if (role === "faculty") {
+    const name = String(user.faculty_name ?? "Faculty");
+    return {
+      name,
+      sub: `${user.designation ?? "Faculty"} • Dept of ${user.department ?? ""} • ID: ${user.faculty_id ?? ""}`,
+      initials: getInitials(name),
+    };
+  }
+
+  const name = String(user.admin_name ?? "Admin");
+  return {
+    name,
+    sub: `${user.role ?? "Administrator"} • ID: ${user.admin_id ?? ""}`,
+    initials: getInitials(name),
+  };
+}
 
 const studentTabs: TabDef[] = [
   { id: "profile", label: "Profile", icon: User },
@@ -58,6 +103,7 @@ const adminTabs: TabDef[] = [
   { id: "students", label: "Students", icon: GraduationCap },
   { id: "faculty", label: "Faculty", icon: Users },
   { id: "courses", label: "Courses", icon: BookOpen },
+  { id: "csv", label: "CSV Data", icon: Database },
   { id: "timetable", label: "Timetable", icon: CalendarDays },
   { id: "fee", label: "Fee Mgmt", icon: Wallet },
   { id: "exam", label: "Examination", icon: Award },
@@ -82,13 +128,31 @@ function Dashboard() {
   }
   const tabs = roleMap[role] || studentTabs;
   const [active, setActive] = useState(tabs[0].id);
+  const [user, setUser] = useState<CsvUser | null>(() => {
+    const stored = localStorage.getItem("user");
+    return stored ? JSON.parse(stored) : null;
+  });
 
-  const profiles: Record<string, { name: string; sub: string; initials: string }> = {
-    student: { name: "Aarav Kapoor", sub: "B.Tech — CSE (Sem VI) • ID: 21CSE042", initials: "AK" },
-    faculty: { name: "Dr. Sarah Jenkins", sub: "Senior AI Professor • Dept of CSE", initials: "SJ" },
-    admin:   { name: "System Administrator", sub: "Root access • node-01", initials: "SA" },
-  };
-  const profile = profiles[role] ?? { name: "User", sub: "", initials: "U" };
+  useEffect(() => {
+    const username = localStorage.getItem("username") || localStorage.getItem("token")?.split(":")[1];
+    if (!username) return;
+
+    apiRequest("/api/user-data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ role, id: username }),
+    })
+      .then((data) => {
+        setUser(data);
+        localStorage.setItem("user", JSON.stringify(data));
+      })
+      .catch(() => {
+        const stored = localStorage.getItem("user");
+        if (stored) setUser(JSON.parse(stored));
+      });
+  }, [role]);
+
+  const profile = profileFromUser(role, user);
 
   return (
     <div className="min-h-screen bg-background flex">
@@ -166,8 +230,8 @@ function Dashboard() {
         </header>
 
         <div key={active} className="flex-1 overflow-y-auto p-6 md:p-8 animate-fade-in">
-          {role === "student" && <StudentPanels active={active} />}
-          {role === "faculty" && <FacultyPanels active={active} />}
+          {role === "student" && <StudentPanels active={active} user={user} />}
+          {role === "faculty" && <FacultyPanels active={active} user={user} />}
           {role === "admin" && <AdminPanels active={active} />}
         </div>
       </main>
@@ -207,39 +271,44 @@ function SectionTitle({ children, hint }: { children: React.ReactNode; hint?: st
 
 /* ---------- STUDENT ---------- */
 
-function StudentPanels({ active }: { active: string }) {
-  if (active === "profile") return <StudentProfile />;
-  if (active === "attendance") return <StudentAttendance />;
+function StudentPanels({ active, user }: { active: string; user: CsvUser | null }) {
+  if (active === "profile") return <StudentProfile user={user} />;
+  if (active === "attendance") return <StudentAttendance user={user} />;
   if (active === "academic") return <StudentAcademic />;
   if (active === "assignment") return <StudentAssignments />;
-  if (active === "exam") return <StudentExam />;
+  if (active === "exam") return <StudentExam user={user} />;
   if (active === "online") return <StudentOnline />;
   if (active === "fee") return <StudentFee />;
   if (active === "notice") return <NoticeBoard />;
-  if (active === "ai") return <StudentAI />;
+  if (active === "ai") return <StudentAI user={user} />;
   return null;
 }
 
-function StudentProfile() {
+function StudentProfile({ user }: { user: CsvUser | null }) {
+  const name = String(user?.name ?? "Loading...");
+  const enrollmentNo = String(user?.enrollment_no ?? "");
+  const department = String(user?.department ?? "");
+  const semester = String(user?.semester ?? "");
+
   return (
     <div className="grid lg:grid-cols-3 gap-6">
       <Card className="lg:col-span-1 text-center">
-        <div className="mx-auto h-24 w-24 rounded-full bg-gradient-primary flex items-center justify-center font-display text-3xl font-semibold text-primary shadow-glow">AK</div>
-        <h3 className="mt-4 font-display text-xl font-semibold">Aarav Kapoor</h3>
-        <p className="text-sm text-muted-foreground">21CSE042 • B.Tech CSE (Sem VI)</p>
+        <div className="mx-auto h-24 w-24 rounded-full bg-gradient-primary flex items-center justify-center font-display text-3xl font-semibold text-primary shadow-glow">{getInitials(name)}</div>
+        <h3 className="mt-4 font-display text-xl font-semibold">{name}</h3>
+        <p className="text-sm text-muted-foreground">{enrollmentNo} • {department} (Sem {semester})</p>
         <div className="mt-5 grid grid-cols-2 gap-3 text-left">
-          <Stat label="CGPA" value="8.92" />
-          <Stat label="Attendance" value="86%" />
+          <Stat label="Year" value={String(user?.year ?? "-")} />
+          <Stat label="Division" value={String(user?.division ?? "-")} />
         </div>
       </Card>
       <Card className="lg:col-span-2">
         <SectionTitle hint="Keep your personal details current.">Update Personal Info</SectionTitle>
         <form onSubmit={(e) => { e.preventDefault(); toast.success("Profile saved"); }} className="grid sm:grid-cols-2 gap-4">
-          <Field label="Full Name" defaultValue="Aarav Kapoor" />
-          <Field label="Email" defaultValue="aarav.k@college.edu" />
-          <Field label="Phone" defaultValue="+91 98765 43210" />
-          <Field label="Guardian" defaultValue="Rajiv Kapoor" />
-          <Field label="Address" defaultValue="Sector 22, New Delhi" className="sm:col-span-2" />
+          <Field label="Full Name" defaultValue={name} />
+          <Field label="Email" defaultValue={String(user?.student_email_id ?? "")} />
+          <Field label="Phone" defaultValue={String(user?.student_mobile_no ?? "")} />
+          <Field label="Parent Email" defaultValue={String(user?.parent_email_id ?? "")} />
+          <Field label="Parent Phone" defaultValue={String(user?.parent_mobile_no ?? "")} className="sm:col-span-2" />
           <button className="sm:col-span-2 justify-self-end inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-lift transition-all hover:-translate-y-0.5">
             Save Changes
           </button>
@@ -249,35 +318,48 @@ function StudentProfile() {
   );
 }
 
-function StudentAttendance() {
-  const subjects = [
-    { name: "Machine Learning", pct: 92, c: "mint" },
-    { name: "Database Systems", pct: 87, c: "ice" },
-    { name: "Compiler Design", pct: 68, c: "destructive" },
-    { name: "Computer Networks", pct: 81, c: "lavender" },
-    { name: "Operating Systems", pct: 78, c: "teal" },
-    { name: "Software Engg.", pct: 94, c: "mint" },
-  ];
+function StudentAttendance({ user }: { user: CsvUser | null }) {
+  const [subjects, setSubjects] = useState<Array<{ subject_name?: string; subject_id: string; attendance_percentage: number }>>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const enrollmentNo = user?.enrollment_no;
+    if (!enrollmentNo) return;
+
+    setLoading(true);
+    apiRequest(`/api/attendance/${enrollmentNo}`)
+      .then(setSubjects)
+      .finally(() => setLoading(false));
+  }, [user?.enrollment_no]);
+
+  if (loading) {
+    return <Card><Loader2 className="h-5 w-5 animate-spin" /></Card>;
+  }
+
+  if (!subjects.length) {
+    return <Card>No attendance records found in CSV for {String(user?.enrollment_no ?? "this student")}.</Card>;
+  }
+
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       {subjects.map((s) => (
-        <Card key={s.name} className="hover-lift">
+        <Card key={s.subject_id} className="hover-lift">
           <div className="flex items-center justify-between">
-            <div className="font-medium">{s.name}</div>
-            {s.pct < 75 && (
+            <div className="font-medium">{s.subject_name || s.subject_id}</div>
+            {Number(s.attendance_percentage) < 75 && (
               <span className="inline-flex items-center gap-1 rounded-full bg-destructive/15 text-destructive px-2 py-1 text-[10px] font-medium uppercase tracking-wide animate-pulse-ring">
                 <AlertTriangle className="h-3 w-3" /> Below 75%
               </span>
             )}
           </div>
           <div className="mt-4 flex items-end justify-between">
-            <div className="font-display text-4xl font-semibold">{s.pct}%</div>
+            <div className="font-display text-4xl font-semibold">{s.attendance_percentage}%</div>
             <div className="text-xs text-muted-foreground">of 120 lectures</div>
           </div>
           <div className="mt-4 h-2 rounded-full bg-muted overflow-hidden">
             <div
-              className={`h-full rounded-full ${s.c === "destructive" ? "bg-destructive" : `bg-[color:var(--${s.c})]`} transition-all duration-700`}
-              style={{ width: `${s.pct}%` }}
+              className={`h-full rounded-full ${Number(s.attendance_percentage) < 75 ? "bg-destructive" : "bg-[color:var(--mint)]"} transition-all duration-700`}
+              style={{ width: `${s.attendance_percentage}%` }}
             />
           </div>
         </Card>
@@ -380,35 +462,47 @@ function StudentAssignments() {
   );
 }
 
-function StudentExam() {
+function StudentExam({ user }: { user: CsvUser | null }) {
+  const [results, setResults] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    const enrollmentNo = user?.enrollment_no;
+    if (!enrollmentNo) return;
+
+    apiRequest(`/api/results/${enrollmentNo}`).then(setResults);
+  }, [user?.enrollment_no]);
+
+  const marks = results.map((r) => Number(r.marks)).filter((mark) => !Number.isNaN(mark));
+  const average = marks.length ? Math.round(marks.reduce((sum, mark) => sum + mark, 0) / marks.length) : 0;
+
   return (
     <div className="grid md:grid-cols-3 gap-5">
       <Card className="md:col-span-2">
-        <SectionTitle hint="Cumulative academic standing">CGPA Summary</SectionTitle>
+        <SectionTitle hint="Loaded from results.csv">Result Summary</SectionTitle>
         <div className="flex items-end justify-between">
           <div>
-            <div className="font-display text-6xl font-semibold bg-linear-to-br from-primary to-lavender bg-clip-text text-transparent">8.92</div>
-            <div className="text-sm text-muted-foreground">out of 10.00 • Sem VI</div>
+            <div className="font-display text-6xl font-semibold bg-linear-to-br from-primary to-lavender bg-clip-text text-transparent">{average || "-"}</div>
+            <div className="text-sm text-muted-foreground">average marks • {results.length} result rows</div>
           </div>
           <button onClick={() => toast.success("Generating PDF grade card…")} className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-lift transition-all hover:-translate-y-0.5">
             Generate Grade Card
           </button>
         </div>
-        <div className="mt-6 grid grid-cols-6 gap-2">
-          {[8.1, 8.4, 8.7, 8.6, 8.9, 8.92].map((g, i) => (
-            <div key={i} className="rounded-xl bg-(--ice)/30 p-3 text-center">
-              <div className="text-[10px] text-muted-foreground">Sem {i + 1}</div>
-              <div className="font-display font-semibold">{g}</div>
+        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {results.length ? results.slice(0, 6).map((result) => (
+            <div key={`${result.subject_id}-${result.semester}`} className="rounded-xl bg-(--ice)/30 p-3 text-center">
+              <div className="text-[10px] text-muted-foreground">{result.subject_name || result.subject_id}</div>
+              <div className="font-display font-semibold">{result.marks} • {result.grade}</div>
             </div>
-          ))}
+          )) : <p className="text-sm text-muted-foreground">No result records found for {String(user?.enrollment_no ?? "this student")}.</p>}
         </div>
       </Card>
       <Card>
-        <SectionTitle>Upcoming Exam</SectionTitle>
+        <SectionTitle>Latest Result</SectionTitle>
         <div className="space-y-3 text-sm">
-          <div className="flex justify-between"><span className="text-muted-foreground">Subject</span><span className="font-medium">Compiler Design</span></div>
-          <div className="flex justify-between"><span className="text-muted-foreground">Date</span><span className="font-medium">Dec 14, 2026</span></div>
-          <div className="flex justify-between"><span className="text-muted-foreground">Hall</span><span className="font-medium">Block C — 204</span></div>
+          <div className="flex justify-between"><span className="text-muted-foreground">Subject</span><span className="font-medium">{results[0]?.subject_name || results[0]?.subject_id || "-"}</span></div>
+          <div className="flex justify-between"><span className="text-muted-foreground">Marks</span><span className="font-medium">{results[0]?.marks ?? "-"}</span></div>
+          <div className="flex justify-between"><span className="text-muted-foreground">Grade</span><span className="font-medium">{results[0]?.grade ?? "-"}</span></div>
         </div>
       </Card>
     </div>
@@ -494,21 +588,21 @@ function StudentFee() {
 }
 
 function NoticeBoard() {
-  const notices = [
-    { t: "Mid-Sem Exam Schedule Released", d: "2 hours ago", tag: "Examination" },
-    { t: "Cultural Fest 'Spectra' — Registrations Open", d: "Yesterday", tag: "Event" },
-    { t: "Library Closed on Dec 25", d: "2 days ago", tag: "General" },
-    { t: "Workshop on Generative AI — Auditorium", d: "3 days ago", tag: "Workshop" },
-  ];
+  const [notices, setNotices] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    apiRequest("/api/events").then(setNotices);
+  }, []);
+
   return (
     <div className="space-y-3">
       {notices.map((n) => (
-        <Card key={n.t} className="flex items-center justify-between hover-lift">
+        <Card key={String(n.event_id)} className="flex items-center justify-between hover-lift">
           <div className="flex items-center gap-4">
             <div className="h-10 w-10 rounded-2xl bg-(--lavender)/30 flex items-center justify-center"><Bell className="h-5 w-5 text-primary" /></div>
             <div>
-              <div className="font-medium">{n.t}</div>
-              <div className="text-xs text-muted-foreground">{n.d} • {n.tag}</div>
+              <div className="font-medium">{n.event_name}</div>
+              <div className="text-xs text-muted-foreground">{n.event_date} • {n.category} • {n.organizer}</div>
             </div>
           </div>
         </Card>
@@ -517,33 +611,81 @@ function NoticeBoard() {
   );
 }
 
-function StudentAI() {
+function StudentAI({ user }: { user: CsvUser | null }) {
+  const [prediction, setPrediction] = useState<CsvUser & {
+    recommendations?: string[];
+    event_participation?: CsvUser[];
+  } | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const enrollmentNo = user?.enrollment_no;
+    if (!enrollmentNo) return;
+
+    setLoading(true);
+    apiRequest(`/api/ai-prediction/${enrollmentNo}`)
+      .then(setPrediction)
+      .finally(() => setLoading(false));
+  }, [user?.enrollment_no]);
+
+  if (loading) {
+    return <Card><Loader2 className="h-5 w-5 animate-spin" /></Card>;
+  }
+
+  const score = Number(prediction?.prediction_score ?? 0);
+  const recommendations = prediction?.recommendations ?? [];
+
   return (
     <div className="grid md:grid-cols-2 gap-5">
       <Card className="bg-gradient-card">
         <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
-          <Sparkles className="h-4 w-4 text-teal" /> Predictive Model
+          <Sparkles className="h-4 w-4 text-teal" /> Attendance + Event Participation Prediction
         </div>
-        <div className="mt-4 font-display text-5xl font-semibold">8.85<span className="text-2xl text-muted-foreground"> / 10</span></div>
-        <p className="mt-2 text-sm text-muted-foreground">Forecasted final CGPA based on attendance, assignment velocity, and mid-sem performance.</p>
+        <div className="mt-4 font-display text-5xl font-semibold">{score || "-"}<span className="text-2xl text-muted-foreground"> / 100</span></div>
+        <p className="mt-2 text-sm text-muted-foreground">{prediction?.prediction ?? "No prediction available"} • Risk: {prediction?.risk ?? "-"}</p>
         <div className="mt-6 h-2 rounded-full bg-white/60 overflow-hidden">
-          <div className="h-full w-[88%] bg-gradient-primary" />
+          <div className="h-full bg-gradient-primary" style={{ width: `${Math.min(score, 100)}%` }} />
+        </div>
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          <Stat label="Avg Attendance" value={`${prediction?.avg_attendance ?? 0}%`} />
+          <Stat label="Event Points" value={String(prediction?.event_points ?? 0)} />
+          <Stat label="Events Attended" value={String(prediction?.attended_events ?? 0)} />
+          <Stat label="Records Used" value={String(prediction?.attendance_records ?? 0)} />
         </div>
       </Card>
       <Card>
         <SectionTitle hint="Personalized recommendations">Smart Study Plan</SectionTitle>
-        <ul className="space-y-3 text-sm">
-          {[
-            "Focus 4hr/week on Compiler Design — attendance is below threshold.",
-            "Practice 15 SQL queries weekly to push DB grade from A to A+.",
-            "Join the OS concurrency live lab on Thursday for hands-on practice.",
-          ].map((tip, i) => (
+        {recommendations.length ? (
+          <ul className="space-y-3 text-sm">
+          {recommendations.map((tip, i) => (
             <li key={i} className="flex gap-3 rounded-2xl border border-border p-3">
               <span className="h-7 w-7 shrink-0 rounded-full bg-gradient-primary flex items-center justify-center text-primary text-xs font-semibold">{i + 1}</span>
               <span>{tip}</span>
             </li>
           ))}
-        </ul>
+          </ul>
+        ) : (
+          <p className="text-sm text-muted-foreground">No attendance or event participation records found for {String(user?.enrollment_no ?? "this student")}.</p>
+        )}
+        {!!prediction?.event_participation?.length && (
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-xs text-muted-foreground uppercase">
+                <tr><th className="text-left p-2">Event</th><th className="text-left p-2">Status</th><th className="text-left p-2">Position</th><th className="text-left p-2">Points</th></tr>
+              </thead>
+              <tbody>
+                {prediction.event_participation.map((event) => (
+                  <tr key={String(event.event_id)} className="border-t border-border">
+                    <td className="p-2 font-mono text-xs">{event.event_id}</td>
+                    <td className="p-2">{event.attendance_status}</td>
+                    <td className="p-2">{event.position}</td>
+                    <td className="p-2">{event.points}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </Card>
     </div>
   );
@@ -551,21 +693,23 @@ function StudentAI() {
 
 /* ---------- FACULTY ---------- */
 
-function FacultyPanels({ active }: { active: string }) {
+function FacultyPanels({ active, user }: { active: string; user: CsvUser | null }) {
+  const name = String(user?.faculty_name ?? "Loading...");
+
   if (active === "profile") return (
     <Card>
       <div className="flex items-center gap-5">
-        <div className="h-20 w-20 rounded-full bg-gradient-primary flex items-center justify-center font-display text-2xl font-semibold text-primary">SJ</div>
+        <div className="h-20 w-20 rounded-full bg-gradient-primary flex items-center justify-center font-display text-2xl font-semibold text-primary">{getInitials(name)}</div>
         <div>
-          <h2 className="font-display text-2xl font-semibold">Dr. Sarah Jenkins</h2>
-          <p className="text-sm text-muted-foreground">Senior AI Professor • Dept of Computer Science</p>
-          <p className="text-sm text-muted-foreground">PhD Stanford • 14 yrs experience • h-index 32</p>
+          <h2 className="font-display text-2xl font-semibold">{name}</h2>
+          <p className="text-sm text-muted-foreground">{user?.designation} • Dept of {user?.department}</p>
+          <p className="text-sm text-muted-foreground">{user?.faculty_id} • {user?.email} • {user?.mobile_no}</p>
         </div>
       </div>
       <div className="mt-6 grid sm:grid-cols-3 gap-3">
-        <Stat label="Active Classes" value="6" />
-        <Stat label="Students" value="248" />
-        <Stat label="Research Papers" value="42" />
+        <Stat label="Department" value={String(user?.department ?? "-")} />
+        <Stat label="Designation" value={String(user?.designation ?? "-")} />
+        <Stat label="Faculty ID" value={String(user?.faculty_id ?? "-")} />
       </div>
     </Card>
   );
@@ -604,28 +748,27 @@ function FacultyAttendance() {
 }
 
 function FacultyStudents() {
-  const roster = [
-    { n: "Aarav Kapoor", a: 86, g: 8.92, trend: "up" },
-    { n: "Diya Sharma", a: 91, g: 9.10, trend: "up" },
-    { n: "Karan Singh", a: 64, g: 6.40, trend: "down" },
-    { n: "Riya Mehta", a: 78, g: 8.05, trend: "up" },
-    { n: "Vihaan Joshi", a: 88, g: 8.62, trend: "up" },
-  ];
+  const [roster, setRoster] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    apiRequest("/api/students").then((data) => setRoster(data.slice(0, 20)));
+  }, []);
+
   return (
     <Card>
       <SectionTitle hint="Class roster with performance trends">Student Management</SectionTitle>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="text-xs text-muted-foreground uppercase">
-            <tr><th className="text-left p-3">Student</th><th className="text-left p-3">Attendance</th><th className="text-left p-3">CGPA</th><th className="text-left p-3">Trend</th></tr>
+            <tr><th className="text-left p-3">Student</th><th className="text-left p-3">Enrollment</th><th className="text-left p-3">Department</th><th className="text-left p-3">Semester</th></tr>
           </thead>
           <tbody>
             {roster.map((r) => (
-              <tr key={r.n} className="border-t border-border hover:bg-accent/40 transition-colors">
-                <td className="p-3 font-medium">{r.n}</td>
-                <td className="p-3"><span className={`rounded-full px-2 py-0.5 text-xs ${r.a < 75 ? "bg-destructive/15 text-destructive" : "bg-[color:var(--mint)]/30"}`}>{r.a}%</span></td>
-                <td className="p-3">{r.g}</td>
-                <td className="p-3 text-xs">{r.trend === "up" ? "↗ Improving" : "↘ Declining"}</td>
+              <tr key={String(r.enrollment_no)} className="border-t border-border hover:bg-accent/40 transition-colors">
+                <td className="p-3 font-medium">{r.name}</td>
+                <td className="p-3 font-mono text-xs">{r.enrollment_no}</td>
+                <td className="p-3">{r.department}</td>
+                <td className="p-3">{r.semester}</td>
               </tr>
             ))}
           </tbody>
@@ -657,15 +800,23 @@ function FacultyAssignment() {
 }
 
 function FacultyExam() {
-  const students = ["Aarav Kapoor", "Diya Sharma", "Karan Singh", "Riya Mehta", "Vihaan Joshi"];
+  const [students, setStudents] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    apiRequest("/api/students").then((data) => setStudents(data.slice(0, 10)));
+  }, []);
+
   return (
     <Card>
-      <SectionTitle hint="Sync directly to the database">Grade Entry</SectionTitle>
+      <SectionTitle hint="Students loaded from student.csv">Grade Entry</SectionTitle>
       <form onSubmit={(e) => { e.preventDefault(); toast.success("Grades persisted"); }} className="space-y-3">
-        {students.map((s) => (
-          <div key={s} className="flex items-center justify-between gap-4 rounded-2xl border border-border p-3">
-            <div className="text-sm font-medium">{s}</div>
-            <input defaultValue={Math.floor(70 + Math.random() * 25)} className="w-24 rounded-xl border border-input bg-background px-3 py-2 text-sm text-right outline-none focus:border-[color:var(--ring)] focus:ring-4 focus:ring-[color:var(--ring)]/15" />
+        {students.map((student) => (
+          <div key={String(student.enrollment_no)} className="flex items-center justify-between gap-4 rounded-2xl border border-border p-3">
+            <div>
+              <div className="text-sm font-medium">{student.name}</div>
+              <div className="text-xs text-muted-foreground">{student.enrollment_no} • {student.department}</div>
+            </div>
+            <input defaultValue="" placeholder="Marks" className="w-24 rounded-xl border border-input bg-background px-3 py-2 text-sm text-right outline-none focus:border-[color:var(--ring)] focus:ring-4 focus:ring-[color:var(--ring)]/15" />
           </div>
         ))}
         <button className="ml-auto block rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-lift transition-all">Sync to DB</button>
@@ -741,6 +892,7 @@ function AdminPanels({ active }: { active: string }) {
       {active === "students" && <AdminCRUD title="Student Management" />}
       {active === "faculty" && <AdminFaculty />}
       {active === "courses" && <AdminCourses />}
+      {active === "csv" && <AdminCsvData />}
       {active === "timetable" && <AdminTimetable />}
       {active === "fee" && <AdminFee />}
       {active === "exam" && <AdminExam />}
@@ -752,11 +904,29 @@ function AdminPanels({ active }: { active: string }) {
 }
 
 function AdminStatusBar() {
+  const [stats, setStats] = useState({
+    students: "...",
+    faculty: "...",
+    courses: "...",
+    avg_attendance: "...",
+  });
+
+  useEffect(() => {
+    apiRequest("/api/dashboard-stats").then((data) => {
+      setStats({
+        students: String(data.students ?? data.student_count ?? 0),
+        faculty: String(data.faculty ?? data.faculty_count ?? 0),
+        courses: String(data.courses ?? 0),
+        avg_attendance: String(data.avg_attendance ?? "0%"),
+      });
+    });
+  }, []);
+
   const items = [
-    { l: "Active Users", v: "4,250", c: "ice" },
-    { l: "Faculty Nodes", v: "180", c: "lavender" },
-    { l: "Fee Collection", v: "94%", c: "teal" },
-    { l: "API Uptime", v: "100%", c: "mint" },
+    { l: "Students", v: stats.students, c: "ice" },
+    { l: "Faculty", v: stats.faculty, c: "lavender" },
+    { l: "Subjects", v: stats.courses, c: "teal" },
+    { l: "Avg Attendance", v: stats.avg_attendance, c: "mint" },
   ];
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -774,12 +944,12 @@ function AdminStatusBar() {
 }
 
 function AdminCRUD({ title }: { title: string }) {
-  const rows = [
-    { id: "21CSE001", n: "Aarav Kapoor", dept: "CSE", sem: "VI" },
-    { id: "21CSE002", n: "Diya Sharma", dept: "CSE", sem: "VI" },
-    { id: "21ECE015", n: "Karan Singh", dept: "ECE", sem: "VI" },
-    { id: "21MEC022", n: "Riya Mehta", dept: "MECH", sem: "VI" },
-  ];
+  const [rows, setRows] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    apiRequest("/api/students").then((data) => setRows(data.slice(0, 20)));
+  }, []);
+
   return (
     <Card>
       <div className="flex items-center justify-between mb-4">
@@ -804,11 +974,11 @@ function AdminCRUD({ title }: { title: string }) {
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r.id} className="border-t border-border hover:bg-accent/40 transition-colors">
-                <td className="p-3 font-mono text-xs">{r.id}</td>
-                <td className="p-3 font-medium">{r.n}</td>
-                <td className="p-3">{r.dept}</td>
-                <td className="p-3">{r.sem}</td>
+              <tr key={String(r.enrollment_no)} className="border-t border-border hover:bg-accent/40 transition-colors">
+                <td className="p-3 font-mono text-xs">{r.enrollment_no}</td>
+                <td className="p-3 font-medium">{r.name}</td>
+                <td className="p-3">{r.department}</td>
+                <td className="p-3">{r.semester}</td>
                 <td className="p-3 text-right">
                   <button onClick={() => toast.success("Edit dialog opened")} className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-accent"><PenSquare className="h-4 w-4" /></button>
                   <button onClick={() => toast.error("Record deleted")} className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>
@@ -823,12 +993,20 @@ function AdminCRUD({ title }: { title: string }) {
 }
 
 function AdminFaculty() {
-  const depts = [
-    { d: "Computer Science", f: 42, p: true },
-    { d: "Electronics", f: 28, p: true },
-    { d: "Mechanical", f: 36, p: false },
-    { d: "Civil", f: 24, p: true },
-  ];
+  const [depts, setDepts] = useState<Array<{ d: string; f: number; p: boolean }>>([]);
+
+  useEffect(() => {
+    apiRequest("/api/faculty-list").then((data: CsvUser[]) => {
+      const counts = data.reduce<Record<string, number>>((acc, member) => {
+        const department = String(member.department ?? "Unknown");
+        acc[department] = (acc[department] ?? 0) + 1;
+        return acc;
+      }, {});
+
+      setDepts(Object.entries(counts).map(([d, f]) => ({ d, f, p: true })));
+    });
+  }, []);
+
   return (
     <Card>
       <SectionTitle hint="Departments & permissions">Faculty Management</SectionTitle>
@@ -853,18 +1031,101 @@ function AdminFaculty() {
 }
 
 function AdminCourses() {
+  const [subjects, setSubjects] = useState<CsvUser[]>([]);
+
+  useEffect(() => {
+    apiRequest("/api/subjects").then((data) => setSubjects(data.slice(0, 30)));
+  }, []);
+
   return (
     <Card>
-      <SectionTitle hint="Define structure for a new course">Create Course</SectionTitle>
-      <form onSubmit={(e) => { e.preventDefault(); toast.success("Course published"); }} className="grid sm:grid-cols-2 gap-4">
-        <Field label="Course Name" defaultValue="Quantum Computing" />
-        <Field label="Code" defaultValue="CSE-705" />
-        <Field label="Modules" defaultValue="6" />
-        <Field label="Duration (weeks)" defaultValue="16" />
-        <Field label="Credits" defaultValue="4" />
-        <Field label="Department" defaultValue="CSE" />
-        <button className="sm:col-span-2 justify-self-end rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-lift transition-all">Save Course</button>
-      </form>
+      <SectionTitle hint="Loaded from subjects.csv">Subjects</SectionTitle>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="text-xs text-muted-foreground uppercase">
+            <tr><th className="text-left p-3">Subject ID</th><th className="text-left p-3">Subject</th><th className="text-left p-3">Department</th><th className="text-left p-3">Semester</th></tr>
+          </thead>
+          <tbody>
+            {subjects.map((subject) => (
+              <tr key={String(subject.subject_id)} className="border-t border-border hover:bg-accent/40 transition-colors">
+                <td className="p-3 font-mono text-xs">{subject.subject_id}</td>
+                <td className="p-3 font-medium">{subject.subject_name}</td>
+                <td className="p-3">{subject.department}</td>
+                <td className="p-3">{subject.semester}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Card>
+  );
+}
+
+function AdminCsvData() {
+  const [datasets, setDatasets] = useState<Record<string, CsvDataset>>({});
+  const [activeDataset, setActiveDataset] = useState("student");
+
+  useEffect(() => {
+    apiRequest("/api/csv-data").then((data) => {
+      setDatasets(data);
+      if (!data[activeDataset]) {
+        const first = Object.keys(data)[0];
+        if (first) setActiveDataset(first);
+      }
+    });
+  }, []);
+
+  const names = Object.keys(datasets);
+  const dataset = datasets[activeDataset];
+
+  return (
+    <Card>
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <SectionTitle hint="Every dataset is loaded directly from the CSV folder">CSV File Information</SectionTitle>
+        <div className="flex flex-wrap gap-2">
+          {names.map((name) => (
+            <button
+              key={name}
+              onClick={() => setActiveDataset(name)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${activeDataset === name ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-accent"}`}
+            >
+              {name}.csv
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {dataset ? (
+        <>
+          <div className="mb-3 text-sm text-muted-foreground">
+            Showing {dataset.total} rows from {activeDataset}.csv
+          </div>
+          <div className="max-h-[560px] overflow-auto rounded-2xl border border-border">
+            <table className="w-full min-w-max text-sm">
+              <thead className="sticky top-0 bg-card text-xs uppercase text-muted-foreground">
+                <tr>
+                  {dataset.columns.map((column) => (
+                    <th key={column} className="border-b border-border p-3 text-left font-medium">{column}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {dataset.rows.map((row, index) => (
+                  <tr key={index} className="border-b border-border last:border-b-0 hover:bg-accent/40">
+                    {dataset.columns.map((column) => (
+                      <td key={column} className="p-3 align-top">{String(row[column] ?? "")}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : (
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" /> Loading CSV files...
+        </div>
+      )}
     </Card>
   );
 }

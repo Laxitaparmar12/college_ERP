@@ -26,12 +26,15 @@ const submit = async (e: React.FormEvent) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password, role }),
     });
-
+    console.log("LOGIN RESPONSE:", response);
+    
     const res = await response.json();
 
   if (response.ok) {
     localStorage.setItem("token", res.token);
     localStorage.setItem("role", role);
+    localStorage.setItem("username", username);
+    localStorage.setItem("user", JSON.stringify(res.user));
 
     navigate({ to: "/dashboard/$role", params: { role } });
   } else {
