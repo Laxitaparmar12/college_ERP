@@ -1,65 +1,105 @@
-subject_id,subject_name,department,semester
-SUB101,Data Structures and Algorithms,CE,3
-SUB102,Object Oriented Programming,CE,3
-SUB103,Operating Systems,CE,4
-SUB104,Database Management Systems,CE,4
-SUB105,Computer Networks,CE,5
-SUB106,Theory of Computation,CE,5
-SUB107,Compiler Design,CE,6
-SUB108,Artificial Intelligence,CE,7
-SUB109,Web Technologies,IT,4
-SUB110,Information Security,IT,6
-SUB111,Cloud Computing,IT,7
-SUB112,Data Warehousing and Data Mining,IT,6
-SUB113,Mobile Application Development,IT,5
-SUB114,Software Engineering,IT,3
-SUB115,Distributed Systems,IT,7
-SUB116,Cryptography,IT,8
-SUB117,Engineering Thermodynamics,ME,3
-SUB118,Fluid Mechanics and Machinery,ME,4
-SUB119,Kinematics of Machinery,ME,4
-SUB120,Manufacturing Technology,ME,3
-SUB121,Design of Machine Elements,ME,5
-SUB122,Heat and Mass Transfer,ME,6
-SUB123,Computer Aided Design (CAD),ME,7
-SUB124,Automobile Engineering,ME,8
-SUB125,Strength of Materials,CIVIL,3
-SUB126,Surveying,CIVIL,3
-SUB127,Fluid Mechanics,CIVIL,4
-SUB128,Structural Analysis,CIVIL,5
-SUB129,Concrete Technology,CIVIL,4
-SUB130,Transportation Engineering,CIVIL,6
-SUB131,Geotechnical Engineering,CIVIL,5
-SUB132,Environmental Engineering,CIVIL,7
-SUB133,Electric Circuits and Networks,EE,3
-SUB134,Electrical Machines - I,EE,4
-SUB135,Power Systems - I,EE,5
-SUB136,Control Systems,EE,5
-SUB137,Power Electronics,EE,6
-SUB138,Electromagnetic Fields,EE,4
-SUB139,Renewable Energy Sources,EE,7
-SUB140,Digital Signal Processing,EE,6
-SUB141,Electronic Devices and Circuits,EC,3
-SUB142,Digital Electronics,EC,3
-SUB143,Signals and Systems,EC,4
-SUB144,Analog Communication,EC,5
-SUB145,Microprocessors and Microcontrollers,EC,5
-SUB146,Digital Communication,EC,6
-SUB147,VLSI Design,EC,7
-SUB148,Embedded Systems,EC,8
-SUB149,Principles of Management,MBA,1
-SUB150,Organizational Behavior,MBA,1
-SUB151,Financial Accounting,MBA,1
-SUB152,Marketing Management,MBA,2
-SUB153,Human Resource Management,MBA,2
-SUB154,Strategic Management,MBA,3
-SUB155,Operations Research,MBA,3
-SUB156,International Business,MBA,4
-SUB157,Mathematical Foundations of Computer Science,MCA,1
-SUB158,Advanced Java Programming,MCA,2
-SUB159,Computer Organization and Architecture,MCA,1
-SUB160,Data Structures using C,MCA,1
-SUB161,Linux Internals,MCA,2
-SUB162,Software Testing and Quality Assurance,MCA,3
-SUB163,Cyber Security and Cyber Laws,MCA,3
-SUB164,Big Data Analytics,MCA,4
+"subject_id","subject_name","department","semester"
+"SUB101","Data Structures and Algorithms","CE","3"
+"SUB102","Object Oriented Programming","CE","3"
+"SUB103","Operating Systems","CE","4"
+"SUB104","Database Management Systems","CE","4"
+"SUB105","Computer Networks","CE","5"
+"SUB106","Theory of Computation","CE","5"
+"SUB107","Compiler Design","CE","6"
+"SUB108","Artificial Intelligence","CE","7"
+"SUB109","Web Technologies","IT","4"
+"SUB110","Information Security","IT","6"
+"SUB111","Cloud Computing","IT","7"
+"SUB112","Data Warehousing and Data Mining","IT","6"
+"SUB113","Mobile Application Development","IT","5"
+"SUB114","Software Engineering","IT","3"
+"SUB115","Distributed Systems","IT","7"
+"SUB116","Cryptography","IT","8"
+"SUB117","Engineering Thermodynamics","ME","3"
+"SUB118","Fluid Mechanics and Machinery","ME","4"
+"SUB119","Kinematics of Machinery","ME","4"
+"SUB120","Manufacturing Technology","ME","3"
+"SUB121","Design of Machine Elements","ME","5"
+"SUB122","Heat and Mass Transfer","ME","6"
+"SUB123","Computer Aided Design (CAD)","ME","7"
+"SUB124","Automobile Engineering","ME","8"
+"SUB125","Strength of Materials","CIVIL","3"
+"SUB126","Surveying","CIVIL","3"
+"SUB127","Fluid Mechanics","CIVIL","4"
+"SUB128","Structural Analysis","CIVIL","5"
+"SUB129","Concrete Technology","CIVIL","4"
+"SUB130","Transportation Engineering","CIVIL","6"
+"SUB131","Geotechnical Engineering","CIVIL","5"
+"SUB132","Environmental Engineering","CIVIL","7"
+"SUB133","Electric Circuits and Networks","EE","3"
+"SUB134","Electrical Machines - I","EE","4"
+"SUB135","Power Systems - I","EE","5"
+"SUB136","Control Systems","EE","5"
+"SUB137","Power Electronics","EE","6"
+"SUB138","Electromagnetic Fields","EE","4"
+"SUB139","Renewable Energy Sources","EE","7"
+"SUB140","Digital Signal Processing","EE","6"
+"SUB141","Electronic Devices and Circuits","EC","3"
+"SUB142","Digital Electronics","EC","3"
+"SUB143","Signals and Systems","EC","4"
+"SUB144","Analog Communication","EC","5"
+"SUB145","Microprocessors and Microcontrollers","EC","5"
+"SUB146","Digital Communication","EC","6"
+"SUB147","VLSI Design","EC","7"
+"SUB148","Embedded Systems","EC","8"
+"SUB149","Principles of Management","MBA","1"
+"SUB150","Organizational Behavior","MBA","1"
+"SUB151","Financial Accounting","MBA","1"
+"SUB152","Marketing Management","MBA","2"
+"SUB153","Human Resource Management","MBA","2"
+"SUB154","Strategic Management","MBA","3"
+"SUB155","Operations Research","MBA","3"
+"SUB156","International Business","MBA","4"
+"SUB157","Mathematical Foundations of Computer Science","MCA","1"
+"SUB158","Advanced Java Programming","MCA","2"
+"SUB159","Computer Organization and Architecture","MCA","1"
+"SUB160","Data Structures using C","MCA","1"
+"SUB161","Linux Internals","MCA","2"
+"SUB162","Software Testing and Quality Assurance","MCA","3"
+"SUB163","Cyber Security and Cyber Laws","MCA","3"
+"SUB164","Big Data Analytics","MCA","4"
+"CE202","Computer Engineering 202","CE","4"
+"CE301","Computer Engineering 301","CE","5"
+"CE302","Computer Engineering 302","CE","6"
+"CE401","Computer Engineering 401","CE","7"
+"CE402","Computer Engineering 402","CE","8"
+"CI102","Civil Engineering 102","CIVIL","2"
+"CS102","Computer Science 102","CE","2"
+"CS201","Computer Science 201","CE","3"
+"CS202","Computer Science 202","CE","4"
+"CS301","Computer Science 301","CE","5"
+"CS302","Computer Science 302","CE","6"
+"CS401","Computer Science 401","CE","7"
+"CS402","Computer Science 402","CE","8"
+"CY101","Chemistry 101","Science & Humanity","1"
+"EC201","Electronics and Communication 201","EC","3"
+"EC202","Electronics and Communication 202","EC","4"
+"EC302","Electronics and Communication 302","EC","6"
+"EC402","Electronics and Communication 402","EC","8"
+"EE101","Electrical Engineering 101","EE","1"
+"EE201","Electrical Engineering 201","EE","3"
+"EE301","Electrical Engineering 301","EE","5"
+"EE401","Electrical Engineering 401","EE","7"
+"HU101","Humanities 101","Science & Humanity","1"
+"HU102","Humanities 102","Science & Humanity","2"
+"IT201","Information Technology 201","IT","3"
+"IT202","Information Technology 202","IT","4"
+"IT301","Information Technology 301","IT","5"
+"IT302","Information Technology 302","IT","6"
+"IT401","Information Technology 401","IT","7"
+"IT402","Information Technology 402","IT","8"
+"MA101","Mathematics 101","Science & Humanity","1"
+"MA102","Mathematics 102","Science & Humanity","2"
+"MA201","Mathematics 201","Science & Humanity","3"
+"ME102","Mechanical Engineering 102","ME","2"
+"ME202","Mechanical Engineering 202","ME","4"
+"ME301","Mechanical Engineering 301","ME","5"
+"ME302","Mechanical Engineering 302","ME","6"
+"ME401","Mechanical Engineering 401","ME","7"
+"ME402","Mechanical Engineering 402","ME","8"
+"PH101","Physics 101","Science & Humanity","1"

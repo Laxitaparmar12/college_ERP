@@ -1,0 +1,230 @@
+enrollment_no,name,department,gender,year,semester,division,student_email_id,parent_email_id,student_mobile_no,parent_mobile_no,password
+24IT30225,Karan Malhotra,IT,Male,2,4,B,karan.malhotra@college.edu,parent.karan.malhotra@gmail.com,7018973641,9407335198,karan123
+23CE30260,Jyoti Shinde,CE,Female,3,6,B,jyoti.shinde@college.edu,parent.jyoti.shinde@gmail.com,9477028125,7201724738,jyoti733
+23EE30397,Sai Nair,EE,Male,3,6,A,sai.nair@college.edu,parent.sai.nair@gmail.com,8272589578,8915011986,sai733
+25EC30419,Aarav Banerjee,EC,Male,1,2,B,aarav.banerjee@college.edu,parent.aarav.banerjee@gmail.com,9591461971,9456455122,aarav913
+23CIVIL30310,Anya Seth,CIVIL,Female,3,5,B,anya.seth@college.edu,parent.anya.seth@gmail.com,8010834316,7717616117,anya133
+24SH30022,Gaurav Panda,Science & Humanity,Male,2,3,C,gaurav.panda@college.edu,parent.gaurav.panda@gmail.com,8346087522,9004555811,gaurav423
+24MBA30164,Aavush Kapoor,MBA,Male,2,4,C,aavush.kapoor@college.edu,parent.aavush.kapoor@gmail.com,6403061299,9977876800,aavush02
+25ME30335,Siddharth Das,ME,Male,1,2,C,siddharth.das@college.edu,parent.siddharth.das@gmail.com,8322046487,9082697262,siddharth213
+24SH30018,Sneha Mehta,Science & Humanity,Female,2,3,A,sneha.mehta@college.edu,parent.sneha.mehta@gmail.com,9588647040,7920788646,sneha823
+22CE30372,Simran Reddy,CE,Female,4,8,A,simran.reddy@college.edu,parent.simran.reddy@gmail.com,6865225026,7129548480,simran643
+23ME30545,Rishi Trivedi,ME,Male,3,5,C,rishi.trivedi@college.edu,parent.rishi.trivedi@gmail.com,6639893962,8109923838,rishi333
+23CIVIL30263,Aarav Dutta,CIVIL,Male,3,5,B,aarav.dutta@college.edu,parent.aarav.dutta@gmail.com,7329486821,8029517540,aarav233
+25CE30509,Tanish Patel,CE,Male,1,1,A,tanish.patel@college.edu,parent.tanish.patel@gmail.com,6128038753,6078310065,tanish213
+23ME30318,Prerna Gill,ME,Female,3,5,A,prerna.gill@college.edu,parent.prerna.gill@gmail.com,8224792617,8586077590,prerna233
+24MCA30588,Riddhi Rao,MCA,Female,2,4,C,riddhi.rao@college.edu,parent.riddhi.rao@gmail.com,8046771192,6742511470,riddhi42
+23EC30114,Sakshi Aggarwal,EC,Female,3,5,A,sakshi.aggarwal@college.edu,parent.sakshi.aggarwal@gmail.com,7375685817,7074360341,sakshi733
+22IT30444,Deepika Pandey,IT,Female,4,8,C,deepika.pandey@college.edu,parent.deepika.pandey@gmail.com,7714856034,7083049185,deepika143
+22CE30222,Aarav Yadav,CE,Male,4,8,A,aarav.yadav@college.edu,parent.aarav.yadav@gmail.com,8322695552,6572237887,aarav243
+25ME30147,Bhavna Patel,ME,Female,1,2,C,bhavna.patel@college.edu,parent.bhavna.patel@gmail.com,6396349925,6601431674,bhavna913
+24CE30142,Deepak Saxena,CE,Male,2,4,C,deepak.saxena@college.edu,parent.deepak.saxena@gmail.com,9065961655,9077227656,deepak623
+22CIVIL30303,Atharv Saxena,CIVIL,Male,4,7,A,atharv.saxena@college.edu,parent.atharv.saxena@gmail.com,6407027582,7880154673,atharv043
+25SH30026,Rishi Trivedi,Science & Humanity,Male,1,1,A,rishi.trivedi1@college.edu,parent.rishi.trivedi1@gmail.com,7709668383,9394627447,rishi013
+25CE30121,Priyanka Shah,CE,Female,1,2,C,priyanka.shah@college.edu,parent.priyanka.shah@gmail.com,9954005885,8620921477,priyanka513
+24SH30571,Reyansh Pillai,Science & Humanity,Male,2,4,A,reyansh.pillai@college.edu,parent.reyansh.pillai@gmail.com,7431109062,7908990422,reyansh323
+23EC30064,Diya Srivastava,EC,Female,3,6,C,diya.srivastava@college.edu,parent.diya.srivastava@gmail.com,8001859815,6997424666,diya033
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,1,B,deepak.chawla@college.edu,parent.deepak.chawla@gmail.com,6561234975,8150259837,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,8,B,yash.aggarwal@college.edu,parent.yash.aggarwal@gmail.com,9996614488,7192661858,yash943
+24IT30501,Mansi Sharma,IT,Female,2,4,B,mansi.sharma@college.edu,parent.mansi.sharma@gmail.com,6475658682,7353982463,mansi723
+25EC30410,Kayan Seth,EC,Male,1,2,A,kayan.seth@college.edu,parent.kayan.seth@gmail.com,9163777771,9574880927,kayan613
+24CE30588,Rohan Sen,CE,Male,2,3,A,rohan.sen@college.edu,parent.rohan.sen@gmail.com,9985223019,6975294520,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,2,B,utkarsh.chawla@college.edu,parent.utkarsh.chawla@gmail.com,9977800725,6924845579,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,2,C,siddhi.seth@college.edu,parent.siddhi.seth@gmail.com,6088214349,6024982436,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,2,A,ansh.aggarwal@college.edu,parent.ansh.aggarwal@gmail.com,8761109315,9601676839,ansh613
+23EE30541,Shreya Shah,EE,Female,3,5,C,shreya.shah@college.edu,parent.shreya.shah@gmail.com,6783935579,9011317589,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,1,C,atharv.saxena1@college.edu,parent.atharv.saxena1@gmail.com,7578776629,9011986259,atharv713
+22EE30113,Aarav Singh,EE,Male,4,8,A,aarav.signh@college.edu,parent.aarav.signh@gmail.com,8417441584,7720937175,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,5,A,dev.aggarwal@college.edu,parent.dev.aggarwal@gmail.com,7575235889,7628876258,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,3,B,preeti.dutta@college.edu,parent.preeti.dutta@gmail.com,7722956254,8014522965,preeti223
+22ME30129,Yash Sen,ME,Male,4,8,C,yash.sen@college.edu,parent.yash.sen@gmail.com,7900115542,9123886588,yash043
+24CE30310,Aadhya Sen,CE,Female,2,3,B,aadhya.sen@college.edu,parent.aadhya.sen@gmail.com,9594511218,6341775218,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,7,B,vihaan.trivedi@college.edu,parent.vihaan.trivedi@gmail.com,7515152299,6114885822,vihaan143
+23EC30112,Archana Verma,EC,Female,3,5,A,archana.verma@college.edu,parent.archana.verma@gmail.com,7701461971,8426001552,archana033
+23ME30119,Shreya Gill,ME,Female,3,5,A,shreya.gill@college.edu,parent.shreya.gill@gmail.com,7253011219,7945001129,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,8,C,nidhi.singh@college.edu,parent.nidhi.singh@gmail.com,6431718817,7334185292,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,1,B,atharv.shinde@college.edu,parent.atharv.shinde@gmail.com,6001431671,7880922319,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,7,A,sanjay.rao@college.edu,parent.sanjay.rao@gmail.com,9394522971,8331165219,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,4,A,megha.das@college.edu,parent.megha.das@gmail.com,6915011981,8945655112,megha123
+24IT30541,Swati Chawla,IT,Female,2,3,C,swati.chawla@college.edu,parent.swati.chawla@gmail.com,7515229911,6114185291,swati123
+24CE30335,Kavya Saxena,CE,Female,2,4,B,kavya.saxena@college.edu,parent.kavya.saxena@gmail.com,8224792611,8586077591,kavya223
+25EC30412,Pranav Kohli,EC,Male,1,2,B,pranav.kohli@college.edu,parent.pranav.kohli@gmail.com,9163777711,9574880911,pranav613
+22IT30018,Deepika Yadav,IT,Female,4,7,A,deepika.yadav@college.edu,parent.deepika.yadav@gmail.com,7714856011,7083049111,deepika143
+23ME30222,Divya Chawla,ME,Female,3,5,C,divya.chawla@college.edu,parent.divya.chawla@gmail.com,8322695511,6572237811,divya233
+25CIVIL30147,Rashmi Verma,CIVIL,Female,1,2,A,rashmi.verma@college.edu,parent.rashmi.verma@gmail.com,6396349911,6601431611,rashmi913
+23EE30142,Harsh Kulkarni,EE,Male,3,6,A,harsh.kulkarni@college.edu,parent.harsh.kulkarni@gmail.com,6431718811,7334185211,harsh344
+23EC30114,Kriti Aggarwal,EC,Female,3,6,B,kriti.aggarwal@college.edu,parent.kriti.aggarwal@gmail.com,7375685811,7074360311,kriti733
+24SH30022,Alok Trivedi,Science & Humanity,Male,2,4,B,alok.trivedi@college.edu,parent.alok.trivedi@gmail.com,8346087511,9004555811,alok423
+24MBA30164,Anya Seth,MBA,Female,2,4,A,anya.seth1@college.edu,parent.anya.seth1@gmail.com,6403061211,9977876811,anya02
+24MCA30588,Riddhi Rao,MCA,Female,2,4,C,riddhi.rao1@college.edu,parent.riddhi.rao1@gmail.com,8046771111,6742511411,riddhi42
+25EC30419,Atharv Shinde,EC,Male,1,1,A,atharv.shinde1@college.edu,parent.atharv.shinde1@gmail.com,9591461911,9456455111,atharv913
+23CE30260,Jyoti Shinde,CE,Female,3,5,C,jyoti.shinde1@college.edu,parent.jyoti.shinde1@gmail.com,9477028111,7201724711,jyoti733
+24IT30225,Karan Malhotra,IT,Male,2,3,C,karan.malhotra1@college.edu,parent.karan.malhotra1@gmail.com,7018973611,9407335111,karan123
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,2,B,deepak.chawla1@college.edu,parent.deepak.chawla1@gmail.com,6561234911,8150259811,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,7,C,yash.aggarwal1@college.edu,parent.yash.aggarwal1@gmail.com,9996614411,7192661811,yash943
+24IT30501,Mansi Sharma,IT,Female,2,3,A,mansi.sharma1@college.edu,parent.mansi.sharma1@gmail.com,6475658611,7353982411,mansi723
+25EC30410,Kayan Seth,EC,Male,1,1,C,kayan.seth1@college.edu,parent.kayan.seth1@gmail.com,9163777722,9574880922,kayan613
+24CE30588,Rohan Sen,CE,Male,2,4,B,rohan.sen1@college.edu,parent.rohan.sen1@gmail.com,9985223022,6975294522,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,1,B,utkarsh.chawla1@college.edu,parent.utkarsh.chawla1@gmail.com,9977800722,6924845522,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,1,C,siddhi.seth1@college.edu,parent.siddhi.seth1@gmail.com,6088214322,6024982422,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,1,A,ansh.aggarwal1@college.edu,parent.ansh.aggarwal1@gmail.com,8761109322,9601676822,ansh613
+23EE30541,Shreya Shah,EE,Female,3,6,B,shreya.shah1@college.edu,parent.shreya.shah1@gmail.com,6783935522,9011317522,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,2,C,atharv.saxena2@college.edu,parent.atharv.saxena2@gmail.com,7578776622,9011986222,atharv713
+22EE30113,Aarav Singh,EE,Male,4,7,A,aarav.signh1@college.edu,parent.aarav.signh1@gmail.com,8417441522,7720937122,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,6,C,dev.aggarwal1@college.edu,parent.dev.aggarwal1@gmail.com,7575235822,7628876222,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,4,B,preeti.dutta1@college.edu,parent.preeti.dutta1@gmail.com,7722956222,8014522922,preeti223
+22ME30129,Yash Sen,ME,Male,4,7,C,yash.sen1@college.edu,parent.yash.sen1@gmail.com,7900115522,9123886522,yash043
+24CE30310,Aadhya Sen,CE,Female,2,4,A,aadhya.sen1@college.edu,parent.aadhya.sen1@gmail.com,9594511222,6341775222,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,8,B,vihaan.trivedi1@college.edu,parent.vihaan.trivedi1@gmail.com,7515152222,6114885822,vihaan143
+23EC30112,Archana Verma,EC,Female,3,6,A,archana.verma1@college.edu,parent.archana.verma1@gmail.com,7701461922,8426001522,archana033
+23ME30119,Shreya Gill,ME,Female,3,6,B,shreya.gill1@college.edu,parent.shreya.gill1@gmail.com,7253011222,7945001122,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,7,C,nidhi.singh1@college.edu,parent.nidhi.singh1@gmail.com,6431718822,7334185222,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,2,B,atharv.shinde2@college.edu,parent.atharv.shinde2@gmail.com,6001431622,7880922322,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,8,A,sanjay.rao1@college.edu,parent.sanjay.rao1@gmail.com,9394522922,8331165222,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,3,A,megha.das1@college.edu,parent.megha.das1@gmail.com,6915011922,8945655122,megha123
+24IT30541,Swati Chawla,IT,Female,2,4,C,swati.chawla1@college.edu,parent.swati.chawla1@gmail.com,7515229922,6114185222,swati123
+24CE30335,Kavya Saxena,CE,Female,2,3,B,kavya.saxena1@college.edu,parent.kavya.saxena1@gmail.com,8224792622,8586077522,kavya223
+25EC30412,Pranav Kohli,EC,Male,1,1,B,pranav.kohli1@college.edu,parent.pranav.kohli1@gmail.com,9163777733,9574880933,pranav613
+22IT30018,Deepika Yadav,IT,Female,4,8,A,deepika.yadav1@college.edu,parent.deepika.yadav1@gmail.com,7714856033,7083049133,deepika143
+23ME30222,Divya Chawla,ME,Female,3,6,C,divya.chawla1@college.edu,parent.divya.chawla1@gmail.com,8322695533,6572237833,divya233
+25CIVIL30147,Rashmi Verma,CIVIL,Female,1,1,A,rashmi.verma1@college.edu,parent.rashmi.verma1@gmail.com,6396349933,6601431633,rashmi913
+23EE30142,Harsh Kulkarni,EE,Male,3,5,A,harsh.kulkarni1@college.edu,parent.harsh.kulkarni1@gmail.com,6431718833,7334185233,harsh333
+23EC30114,Kriti Aggarwal,EC,Female,3,5,B,kriti.aggarwal1@college.edu,parent.kriti.aggarwal1@gmail.com,7375685833,7074360333,kriti733
+24SH30022,Alok Trivedi,Science & Humanity,Male,2,3,B,alok.trivedi1@college.edu,parent.alok.trivedi1@gmail.com,8346087533,9004555833,alok423
+24MBA30164,Anya Seth,MBA,Female,2,3,A,anya.seth2@college.edu,parent.anya.seth2@gmail.com,6403061233,9977876833,anya02
+24MCA30588,Riddhi Rao,MCA,Female,2,3,C,riddhi.rao2@college.edu,parent.riddhi.rao2@gmail.com,8046771133,6742511433,riddhi42
+25EC30419,Atharv Shinde,EC,Male,1,2,A,atharv.shinde3@college.edu,parent.atharv.shinde3@gmail.com,9591461933,9456455133,atharv913
+23CE30260,Jyoti Shinde,CE,Female,3,6,C,jyoti.shinde2@college.edu,parent.jyoti.shinde2@gmail.com,9477028133,7201724733,jyoti733
+24IT30225,Karan Malhotra,IT,Male,2,4,C,karan.malhotra2@college.edu,parent.karan.malhotra2@gmail.com,7018973633,9407335133,karan123
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,1,B,deepak.chawla2@college.edu,parent.deepak.chawla2@gmail.com,6561234933,8150259833,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,8,C,yash.aggarwal2@college.edu,parent.yash.aggarwal2@gmail.com,9996614433,7192661833,yash943
+24IT30501,Mansi Sharma,IT,Female,2,4,A,mansi.sharma2@college.edu,parent.mansi.sharma2@gmail.com,6475658633,7353982433,mansi723
+25EC30410,Kayan Seth,EC,Male,1,2,C,kayan.seth2@college.edu,parent.kayan.seth2@gmail.com,9163777744,9574880944,kayan613
+24CE30588,Rohan Sen,CE,Male,2,3,B,rohan.sen2@college.edu,parent.rohan.sen2@gmail.com,9985223044,6975294544,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,2,B,utkarsh.chawla2@college.edu,parent.utkarsh.chawla2@gmail.com,9977800744,6924845544,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,2,C,siddhi.seth2@college.edu,parent.siddhi.seth2@gmail.com,6088214344,6024982444,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,2,A,ansh.aggarwal2@college.edu,parent.ansh.aggarwal2@gmail.com,8761109344,9601676844,ansh613
+23EE30541,Shreya Shah,EE,Female,3,5,B,shreya.shah2@college.edu,parent.shreya.shah2@gmail.com,6783935544,9011317544,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,1,C,atharv.saxena3@college.edu,parent.atharv.saxena3@gmail.com,7578776644,9011986244,atharv713
+22EE30113,Aarav Singh,EE,Male,4,8,A,aarav.signh2@college.edu,parent.aarav.signh2@gmail.com,8417441544,7720937144,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,5,C,dev.aggarwal2@college.edu,parent.dev.aggarwal2@gmail.com,7575235844,7628876244,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,3,B,preeti.dutta2@college.edu,parent.preeti.dutta2@gmail.com,7722956244,8014522944,preeti223
+22ME30129,Yash Sen,ME,Male,4,8,C,yash.sen2@college.edu,parent.yash.sen2@gmail.com,7900115544,9123886544,yash043
+24CE30310,Aadhya Sen,CE,Female,2,3,A,aadhya.sen2@college.edu,parent.aadhya.sen2@gmail.com,9594511244,6341775244,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,7,B,vihaan.trivedi2@college.edu,parent.vihaan.trivedi2@gmail.com,7515152244,6114885844,vihaan143
+23EC30112,Archana Verma,EC,Female,3,5,A,archana.verma2@college.edu,parent.archana.verma2@gmail.com,7701461944,8426001544,archana033
+23ME30119,Shreya Gill,ME,Female,3,5,B,shreya.gill2@college.edu,parent.shreya.gill2@gmail.com,7253011244,7945001124,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,8,C,nidhi.singh2@college.edu,parent.nidhi.singh2@gmail.com,6431718844,7334185244,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,1,B,atharv.shinde3@college.edu,parent.atharv.shinde3@gmail.com,6001431644,7880922344,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,7,A,sanjay.rao2@college.edu,parent.sanjay.rao2@gmail.com,9394522944,8331165244,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,4,A,megha.das2@college.edu,parent.megha.das2@gmail.com,6915011944,8945655144,megha123
+24IT30541,Swati Chawla,IT,Female,2,3,C,swati.chawla2@college.edu,parent.swati.chawla2@gmail.com,7515229944,6114185244,swati123
+24CE30335,Kavya Saxena,CE,Female,2,4,B,kavya.saxena2@college.edu,parent.kavya.saxena2@gmail.com,8224792644,8586077544,kavya223
+25EC30412,Pranav Kohli,EC,Male,1,2,B,pranav.kohli2@college.edu,parent.pranav.kohli2@gmail.com,9163777755,9574880955,pranav613
+22IT30018,Deepika Yadav,IT,Female,4,7,A,deepika.yadav2@college.edu,parent.deepika.yadav2@gmail.com,7714856055,7083049155,deepika143
+23ME30222,Divya Chawla,ME,Female,3,5,C,divya.chawla2@college.edu,parent.divya.chawla2@gmail.com,8322695555,6572237855,divya233
+25CIVIL30147,Rashmi Verma,CIVIL,Female,1,2,A,rashmi.verma2@college.edu,parent.rashmi.verma2@gmail.com,6396349955,6601431655,rashmi913
+23EE30142,Harsh Kulkarni,EE,Male,3,6,A,harsh.kulkarni2@college.edu,parent.harsh.kulkarni2@gmail.com,6431718855,7334185255,harsh333
+23EC30114,Kriti Aggarwal,EC,Female,3,6,B,kriti.aggarwal2@college.edu,parent.kriti.aggarwal2@gmail.com,7375685855,7074360355,kriti733
+24SH30022,Alok Trivedi,Science & Humanity,Male,2,4,B,alok.trivedi2@college.edu,parent.alok.trivedi2@gmail.com,8346087555,9004555855,alok423
+24MBA30164,Anya Seth,MBA,Female,2,4,A,anya.seth3@college.edu,parent.anya.seth3@gmail.com,6403061255,9977876855,anya02
+24MCA30588,Riddhi Rao,MCA,Female,2,4,C,riddhi.rao3@college.edu,parent.riddhi.rao3@gmail.com,8046771155,6742511455,riddhi42
+25EC30419,Atharv Shinde,EC,Male,1,1,A,atharv.shinde4@college.edu,parent.atharv.shinde4@gmail.com,9591461955,9456455155,atharv913
+23CE30260,Jyoti Shinde,CE,Female,3,5,C,jyoti.shinde3@college.edu,parent.jyoti.shinde3@gmail.com,9477028155,7201724755,jyoti733
+24IT30225,Karan Malhotra,IT,Male,2,3,C,karan.malhotra3@college.edu,parent.karan.malhotra3@gmail.com,7018973655,9407335155,karan123
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,2,B,deepak.chawla3@college.edu,parent.deepak.chawla3@gmail.com,6561234955,8150259855,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,7,C,yash.aggarwal3@college.edu,parent.yash.aggarwal3@gmail.com,9996614455,7192661855,yash943
+24IT30501,Mansi Sharma,IT,Female,2,3,A,mansi.sharma3@college.edu,parent.mansi.sharma3@gmail.com,6475658655,7353982455,mansi723
+25EC30410,Kayan Seth,EC,Male,1,1,C,kayan.seth3@college.edu,parent.kayan.seth3@gmail.com,9163777766,9574880966,kayan613
+24CE30588,Rohan Sen,CE,Male,2,4,B,rohan.sen3@college.edu,parent.rohan.sen3@gmail.com,9985223066,6975294566,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,1,B,utkarsh.chawla3@college.edu,parent.utkarsh.chawla3@gmail.com,9977800766,6924845566,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,1,C,siddhi.seth3@college.edu,parent.siddhi.seth3@gmail.com,6088214366,6024982466,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,1,A,ansh.aggarwal3@college.edu,parent.ansh.aggarwal3@gmail.com,8761109366,9601676866,ansh613
+23EE30541,Shreya Shah,EE,Female,3,6,B,shreya.shah3@college.edu,parent.shreya.shah3@gmail.com,6783935566,9011317566,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,2,C,atharv.saxena4@college.edu,parent.atharv.saxena4@gmail.com,7578776666,9011986266,atharv713
+22EE30113,Aarav Singh,EE,Male,4,7,A,aarav.signh3@college.edu,parent.aarav.signh3@gmail.com,8417441566,7720937166,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,6,C,dev.aggarwal3@college.edu,parent.dev.aggarwal3@gmail.com,7575235866,7628876266,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,4,B,preeti.dutta3@college.edu,parent.preeti.dutta3@gmail.com,7722956266,8014522966,preeti223
+22ME30129,Yash Sen,ME,Male,4,7,C,yash.sen3@college.edu,parent.yash.sen3@gmail.com,7900115566,9123886566,yash043
+24CE30310,Aadhya Sen,CE,Female,2,4,A,aadhya.sen3@college.edu,parent.aadhya.sen3@gmail.com,9594511266,6341775266,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,8,B,vihaan.trivedi3@college.edu,parent.vihaan.trivedi3@gmail.com,7515152266,6114885866,vihaan143
+23EC30112,Archana Verma,EC,Female,3,6,A,archana.verma3@college.edu,parent.archana.verma3@gmail.com,7701461966,8426001566,archana033
+23ME30119,Shreya Gill,ME,Female,3,6,B,shreya.gill3@college.edu,parent.shreya.gill3@gmail.com,7253011266,7945001126,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,7,C,nidhi.singh3@college.edu,parent.nidhi.singh3@gmail.com,6431718866,7334185266,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,2,B,atharv.shinde4@college.edu,parent.atharv.shinde4@gmail.com,6001431666,7880922366,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,8,A,sanjay.rao3@college.edu,parent.sanjay.rao3@gmail.com,9394522966,8331165266,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,3,A,megha.das3@college.edu,parent.megha.das3@gmail.com,6915011966,8945655166,megha123
+24IT30541,Swati Chawla,IT,Female,2,4,C,swati.chawla3@college.edu,parent.swati.chawla3@gmail.com,7515229966,6114185266,swati123
+24CE30335,Kavya Saxena,CE,Female,2,3,B,kavya.saxena3@college.edu,parent.kavya.saxena3@gmail.com,8224792666,8586077566,kavya223
+25EC30412,Pranav Kohli,EC,Male,1,1,B,pranav.kohli3@college.edu,parent.pranav.kohli3@gmail.com,9163777777,9574880977,pranav613
+22IT30018,Deepika Yadav,IT,Female,4,8,A,deepika.yadav3@college.edu,parent.deepika.yadav3@gmail.com,7714856077,7083049177,deepika143
+23ME30222,Divya Chawla,ME,Female,3,6,C,divya.chawla3@college.edu,parent.divya.chawla3@gmail.com,8322695577,6572237877,divya233
+25CIVIL30147,Rashmi Verma,CIVIL,Female,1,1,A,rashmi.verma3@college.edu,parent.rashmi.verma3@gmail.com,6396349977,6601431677,rashmi913
+23EE30142,Harsh Kulkarni,EE,Male,3,5,A,harsh.kulkarni3@college.edu,parent.harsh.kulkarni3@gmail.com,6431718877,7334185277,harsh333
+23EC30114,Kriti Aggarwal,EC,Female,3,5,B,kriti.aggarwal3@college.edu,parent.kriti.aggarwal3@gmail.com,7375685877,7074360377,kriti733
+24SH30022,Alok Trivedi,Science & Humanity,Male,2,3,B,alok.trivedi3@college.edu,parent.alok.trivedi3@gmail.com,8346087577,9004555877,alok423
+24MBA30164,Anya Seth,MBA,Female,2,3,A,anya.seth4@college.edu,parent.anya.seth4@gmail.com,6403061277,9977876877,anya02
+24MCA30588,Riddhi Rao,MCA,Female,2,3,C,riddhi.rao4@college.edu,parent.riddhi.rao4@gmail.com,8046771177,6742511477,riddhi42
+25EC30419,Atharv Shinde,EC,Male,1,2,A,atharv.shinde5@college.edu,parent.atharv.shinde5@gmail.com,9591461977,9456455177,atharv913
+23CE30260,Jyoti Shinde,CE,Female,3,6,C,jyoti.shinde4@college.edu,parent.jyoti.shinde4@gmail.com,9477028177,7201724777,jyoti733
+24IT30225,Karan Malhotra,IT,Male,2,4,C,karan.malhotra4@college.edu,parent.karan.malhotra4@gmail.com,7018973677,9407335177,karan123
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,1,B,deepak.chawla4@college.edu,parent.deepak.chawla4@gmail.com,6561234977,8150259877,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,8,C,yash.aggarwal4@college.edu,parent.yash.aggarwal4@gmail.com,9996614477,7192661877,yash943
+24IT30501,Mansi Sharma,IT,Female,2,4,A,mansi.sharma4@college.edu,parent.mansi.sharma4@gmail.com,6475658677,7353982477,mansi723
+25EC30410,Kayan Seth,EC,Male,1,2,C,kayan.seth4@college.edu,parent.kayan.seth4@gmail.com,9163777788,9574880988,kayan613
+24CE30588,Rohan Sen,CE,Male,2,3,B,rohan.sen4@college.edu,parent.rohan.sen4@gmail.com,9985223088,6975294588,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,2,B,utkarsh.chawla4@college.edu,parent.utkarsh.chawla4@gmail.com,9977800788,6924845588,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,2,C,siddhi.seth4@college.edu,parent.siddhi.seth4@gmail.com,6088214388,6024982488,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,2,A,ansh.aggarwal4@college.edu,parent.ansh.aggarwal4@gmail.com,8761109388,9601676888,ansh613
+23EE30541,Shreya Shah,EE,Female,3,5,B,shreya.shah4@college.edu,parent.shreya.shah4@gmail.com,6783935588,9011317588,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,1,C,atharv.saxena5@college.edu,parent.atharv.saxena5@gmail.com,7578776688,9011986288,atharv713
+22EE30113,Aarav Singh,EE,Male,4,8,A,aarav.signh4@college.edu,parent.aarav.signh4@gmail.com,8417441588,7720937188,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,5,C,dev.aggarwal4@college.edu,parent.dev.aggarwal4@gmail.com,7575235888,7628876288,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,3,B,preeti.dutta4@college.edu,parent.preeti.dutta4@gmail.com,7722956288,8014522988,preeti223
+22ME30129,Yash Sen,ME,Male,4,8,C,yash.sen4@college.edu,parent.yash.sen4@gmail.com,7900115588,9123886588,yash043
+24CE30310,Aadhya Sen,CE,Female,2,3,A,aadhya.sen4@college.edu,parent.aadhya.sen4@gmail.com,9594511288,6341775288,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,7,B,vihaan.trivedi4@college.edu,parent.vihaan.trivedi4@gmail.com,7515152288,6114885888,vihaan143
+23EC30112,Archana Verma,EC,Female,3,5,A,archana.verma4@college.edu,parent.archana.verma4@gmail.com,7701461988,8426001588,archana033
+23ME30119,Shreya Gill,ME,Female,3,5,B,shreya.gill4@college.edu,parent.shreya.gill4@gmail.com,7253011288,7945001128,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,8,C,nidhi.singh4@college.edu,parent.nidhi.singh4@gmail.com,6431718888,7334185288,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,1,B,atharv.shinde5@college.edu,parent.atharv.shinde5@gmail.com,6001431688,7880922388,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,7,A,sanjay.rao4@college.edu,parent.sanjay.rao4@gmail.com,9394522988,8331165288,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,4,A,megha.das4@college.edu,parent.megha.das4@gmail.com,6915011988,8945655188,megha123
+24IT30541,Swati Chawla,IT,Female,2,3,C,swati.chawla4@college.edu,parent.swati.chawla4@gmail.com,7515229988,6114185288,swati123
+24CE30335,Kavya Saxena,CE,Female,2,4,B,kavya.saxena4@college.edu,parent.kavya.saxena4@gmail.com,8224792688,8586077588,kavya223
+25EC30412,Pranav Kohli,EC,Male,1,2,B,pranav.kohli4@college.edu,parent.pranav.kohli4@gmail.com,9163777799,9574880999,pranav613
+22IT30018,Deepika Yadav,IT,Female,4,7,A,deepika.yadav4@college.edu,parent.deepika.yadav4@gmail.com,7714856099,7083049199,deepika143
+23ME30222,Divya Chawla,ME,Female,3,5,C,divya.chawla4@college.edu,parent.divya.chawla4@gmail.com,8322695599,6572237899,divya233
+25CIVIL30147,Rashmi Verma,CIVIL,Female,1,2,A,rashmi.verma4@college.edu,parent.rashmi.verma4@gmail.com,6396349999,6601431699,rashmi913
+23EE30142,Harsh Kulkarni,EE,Male,3,6,A,harsh.kulkarni4@college.edu,parent.harsh.kulkarni4@gmail.com,6431718899,7334185299,harsh333
+23EC30114,Kriti Aggarwal,EC,Female,3,6,B,kriti.aggarwal4@college.edu,parent.kriti.aggarwal4@gmail.com,7375685899,7074360399,kriti733
+24SH30022,Alok Trivedi,Science & Humanity,Male,2,4,B,alok.trivedi4@college.edu,parent.alok.trivedi4@gmail.com,8346087599,9004555899,alok423
+24MBA30164,Anya Seth,MBA,Female,2,4,A,anya.seth5@college.edu,parent.anya.seth5@gmail.com,6403061299,9977876899,anya02
+24MCA30588,Riddhi Rao,MCA,Female,2,4,C,riddhi.rao5@college.edu,parent.riddhi.rao5@gmail.com,8046771199,6742511499,riddhi42
+25EC30419,Atharv Shinde,EC,Male,1,1,A,atharv.shinde6@college.edu,parent.atharv.shinde6@gmail.com,9591461999,9456455199,atharv913
+23CE30260,Jyoti Shinde,CE,Female,3,5,C,jyoti.shinde5@college.edu,parent.jyoti.shinde5@gmail.com,9477028199,7201724799,jyoti733
+24IT30225,Karan Malhotra,IT,Male,2,3,C,karan.malhotra5@college.edu,parent.karan.malhotra5@gmail.com,7018973699,9407335199,karan123
+25SH30269,Deepak Chawla,Science & Humanity,Male,1,2,B,deepak.chawla5@college.edu,parent.deepak.chawla5@gmail.com,6561234999,8150259899,deepak613
+22IT30386,Yash Aggarwal,IT,Male,4,7,C,yash.aggarwal5@college.edu,parent.yash.aggarwal5@gmail.com,9996614499,7192661899,yash943
+24IT30501,Mansi Sharma,IT,Female,2,3,A,mansi.sharma5@college.edu,parent.mansi.sharma5@gmail.com,6475658699,7353982499,mansi723
+25EC30410,Kayan Seth,EC,Male,1,1,C,kayan.seth5@college.edu,parent.kayan.seth5@gmail.com,9163777700,9574880900,kayan613
+24CE30588,Rohan Sen,CE,Male,2,4,B,rohan.sen5@college.edu,parent.rohan.sen5@gmail.com,9985223000,6975294500,rohan823
+25CIVIL30303,Utkarsh Chawla,CIVIL,Male,1,1,B,utkarsh.chawla5@college.edu,parent.utkarsh.chawla5@gmail.com,9977800700,6924845500,utkarsh713
+25ME30335,Siddhi Seth,ME,Female,1,1,C,siddhi.seth5@college.edu,parent.siddhi.seth5@gmail.com,6088214300,6024982400,siddhi813
+25SH30026,Ansh Aggarwal,Science & Humanity,Male,1,1,A,ansh.aggarwal5@college.edu,parent.ansh.aggarwal5@gmail.com,8761109300,9601676800,ansh613
+23EE30541,Shreya Shah,EE,Female,3,6,B,shreya.shah5@college.edu,parent.shreya.shah5@gmail.com,6783935500,9011317500,shreya833
+25CE30268,Atharv Saxena,CE,Male,1,2,C,atharv.saxena6@college.edu,parent.atharv.saxena6@gmail.com,7578776600,9011986200,atharv713
+22EE30113,Aarav Singh,EE,Male,4,7,A,aarav.signh5@college.edu,parent.aarav.signh5@gmail.com,8417441500,7720937100,aarav143
+23ME30141,Dev Aggarwal,ME,Male,3,6,C,dev.aggarwal5@college.edu,parent.dev.aggarwal5@gmail.com,7575235800,7628876200,dev733
+24CIVIL30420,Preeti Dutta,CIVIL,Female,2,4,B,preeti.dutta5@college.edu,parent.preeti.dutta5@gmail.com,7722956200,8014522900,preeti223
+22ME30129,Yash Sen,ME,Male,4,7,C,yash.sen5@college.edu,parent.yash.sen5@gmail.com,7900115500,9123886500,yash043
+24CE30310,Aadhya Sen,CE,Female,2,4,A,aadhya.sen5@college.edu,parent.aadhya.sen5@gmail.com,9594511200,6341775200,aadhya923
+22IT30141,Vihaan Trivedi,IT,Male,4,8,B,vihaan.trivedi5@college.edu,parent.vihaan.trivedi5@gmail.com,7515152200,6114885800,vihaan143
+23EC30112,Archana Verma,EC,Female,3,6,A,archana.verma5@college.edu,parent.archana.verma5@gmail.com,7701461900,8426001500,archana033
+23ME30119,Shreya Gill,ME,Female,3,6,B,shreya.gill5@college.edu,parent.shreya.gill5@gmail.com,7253011200,7945001120,shreya533
+22EE30142,Nidhi Singh,EE,Female,4,7,C,nidhi.singh5@college.edu,parent.nidhi.singh5@gmail.com,6431718800,7334185200,nidhi343
+25SH30018,Atharv Shinde,Science & Humanity,Male,1,2,B,atharv.shinde6@college.edu,parent.atharv.shinde6@gmail.com,6001431600,7880922300,atharv013
+22IT30554,Sanjay Rao,IT,Male,4,8,A,sanjay.rao5@college.edu,parent.sanjay.rao5@gmail.com,9394522900,8331165200,sanjay943
+24CIVIL30164,Megha Das,CIVIL,Female,2,3,A,megha.das5@college.edu,parent.megha.das5@gmail.com,6915011900,8945655100,megha123
+24IT30541,Swati Chawla,IT,Female,2,4,C,swati.chawla5@college.edu,parent.swati.chawla5@gmail.com,7515229900,6114185200,swati123
+24CE30335,Kavya Saxena,CE,Female,2,3,B,kavya.saxena5@college.edu,parent.kavya.saxena5@gmail.com,8224792600,8586077500,kavya223

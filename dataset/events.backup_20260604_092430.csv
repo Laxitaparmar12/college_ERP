@@ -1,0 +1,21 @@
+event_id,event_name,category,event_date,organizer
+EVT001,HackFest 2026,Technical,2026-08-14,Computer Science Department
+EVT002,Spandan Cultural Fest,Cultural,2026-09-20,Student Council
+EVT003,Annual Athletics Meet,Sports,2026-10-05,Sports Committee
+EVT004,AI & Robotics Workshop,Workshop,2026-07-22,IEEE Student Branch
+EVT005,National Seminar on Sustainable Energy,Seminar,2026-08-30,Mechanical Engineering Dept
+EVT006,CodeBlitz,Technical,2026-11-12,Information Technology Club
+EVT007,Rhythm Night (Musical Event),Cultural,2026-10-18,Music & Fine Arts Society
+EVT008,Inter-College Cricket Tournament,Sports,2026-11-02,Physical Education Dept
+EVT009,Web Development BootCamp,Workshop,2026-06-15,Google Developer Student Clubs
+EVT010,Career Guidance & Placement Seminar,Seminar,2026-09-08,Training & Placement Cell
+EVT011,Cyber Security Capture The Flag,Technical,2026-12-04,MCA Department
+EVT012,Nrutya (Classical Dance Competition),Cultural,2026-10-19,Dance Club
+EVT013,Inter-Department Football League,Sports,2026-09-25,Sports Committee
+EVT014,Design Thinking & CAD Workshop,Workshop,2026-07-11,Civil Engineering Association
+EVT015,Global Economic Trends Seminar,Seminar,2026-10-12,MBA Department
+EVT016,Circuit Design Challenge,Technical,2026-08-22,Electronics & Communication Dept
+EVT017,Drama & Theatre Showcase,Cultural,2026-11-28,Literary & Drama Society
+EVT018,Annual Chess Championship,Sports,2026-08-05,Chess Club
+EVT019,Cloud Computing & DevOps Workshop,Workshop,2026-10-24,CE & IT Department
+EVT020,Research Methodology Seminar,Seminar,2026-06-28,Science & Humanity Department
